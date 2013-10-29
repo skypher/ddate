@@ -62,12 +62,6 @@
 #include <time.h>
 #include <stdio.h>
 
-// work around includes and defines from formerly nls.h
-#include <locale.h>
-#include <libintl.h>
-
-#define LOCALEDIR "/usr/share/locale"
-
 
 // work around includes and defines from formerly c.h
 #ifndef ARRAY_SIZE
@@ -184,10 +178,6 @@ main (int argc, char *argv[]) {
     progname = argv[0];
     if ((p = strrchr(progname, '/')) != NULL)
 	progname = p+1;
-
-    setlocale(LC_ALL, "");
-    bindtextdomain(PACKAGE, LOCALEDIR);
-    textdomain(PACKAGE);
 
     srandom(time(NULL));
     /* do args here */
